@@ -1,5 +1,5 @@
 article {
-    background-image: url(images/background.png);
+    background: url(images/background.png);
     
     min-width: 1024px;
     min-height: 100%;
@@ -24,6 +24,10 @@ img {
     position: fixed;
     top: 8.5%;
     left: 4%;
+
+    animation:
+        fadeIn 500ms ease-in 0ms 1,
+        floating 4s linear 850ms infinite;
 }
 
 .links {
@@ -34,6 +38,11 @@ img {
     position: fixed;
     top: 47%;
     left: 35%;
+
+    animation:
+        waiting 1s ease-out 0ms 1,
+        fadeIn 500ms ease-out 1000ms 1,
+        floating 4s linear 850ms infinite;
 }
 
 .c1 {
@@ -58,18 +67,37 @@ img {
     
     position: fixed;
     top: 68%;
-    left: 80%;
+    left: 79%;
 }
 
 .drop {
-    animation: slideDown 2s;
+    animation-name: slideDown;
+    animation-duration: 3s;
 }
 
-.float { 
+/* .float { 
     animation-name: floating;
     animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
+} */
+
+@keyframes waiting {
+    0% { 
+        opacity: 0; 
+    }
+    100% { 
+        opacity: 0; 
+    }
+}
+
+@keyframes waiting2 {
+    0% { 
+        transform: translateY(-300%);
+    }
+    100% { 
+        transform: translateY(-300%);
+    }
 }
 
 @keyframes fadeIn {
@@ -95,6 +123,9 @@ img {
 
 @keyframes slideDown {
     0% {
+        transform: translateY(-300%);
+    }
+    50% {
         transform: translateY(-300%);
     }
     100% {
